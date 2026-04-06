@@ -121,10 +121,66 @@ async function deletar(req, res) {
   }
 }
 
+// select
+// geo
+async function selectgeo1(req, res) {
+  try {
+    const topico = await topicoModel.selectgeo1();
+    res.status(200).json(topico);
+  } catch (erro) {
+    res.status(500).json({
+      mensagem: "Erro ao buscar tópico", 
+      erro: erro.message,
+    });
+  }
+}
+
+async function selectgeo2(req, res) {
+  try {
+    const topico = await topicoModel.selectgeo2();
+    res.status(200).json(topico);
+  } catch (erro) {
+    res.status(500).json({
+      mensagem: "Erro ao buscar tópico", 
+      erro: erro.message,
+    });
+  }
+}
+
+// ingles
+async function selecting1(req, res) {
+  try {
+    const topicos = await topicoModel.selecting1();
+    res.status(200).json(topicos);
+  } catch (erro) {
+    res.status(500).json({
+      mensagem: "Erro ao buscar tópicos", 
+      erro: erro.message,
+    });
+  }
+}
+
+async function selecting2(req, res) {
+  try {
+    const topicos = await topicoModel.selecting2();
+    res.status(200).json(topicos);
+  } catch (erro) {
+    res.status(500).json({
+      mensagem: "Erro ao buscar tópicos", 
+      erro: erro.message,
+    });
+  }
+}
+
+
 module.exports = {
   listarTodos,
   buscarPorId,
   criar,
   atualizar,
   deletar,
+  selectgeo1,
+  selectgeo2,
+  selecting1,
+  selecting2
 };

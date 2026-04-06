@@ -64,10 +64,81 @@ async function deletar(id) {
   return result.rowCount > 0;
 }
 
+// select
+// geo
+async function selectgeo1() {
+  const result = await pool.query(
+    `
+    SELECT 
+    t.disciplina,
+    q.enunciado,
+    q.resposta
+    FROM questoes q
+    JOIN topicos t ON q.topicoid = t.idt
+    WHERE t.disciplina = 'Geografia';
+    `
+  );
+  return result.rows;
+}
+
+async function selectgeo2() {
+  const result = await pool.query(
+    `
+    SELECT 
+    t.disciplina,
+    t.descricao_topico,
+    q.enunciado,
+    q.resposta
+    FROM questoes q
+    JOIN topicos t ON q.topicoid = t.idt
+    WHERE t.disciplina = 'Geografia'
+      AND t.descricao_topico = 'Meio Ambiente';
+    `
+  );
+  return result.rows;
+}
+
+// ingles
+async function selecting1() {
+  const result = await pool.query(
+    `
+    SELECT 
+    t.disciplina,
+    q.enunciado,
+    q.resposta
+    FROM questoes q
+    JOIN topicos t ON q.topicoid = t.idt
+    WHERE t.disciplina = 'Inglês';
+    `
+  );
+  return result.rows;
+  }
+  
+async function selecting2() {
+  const result = await pool.query(
+    `
+    SELECT 
+    t.disciplina,
+    t.descricao_topico,
+    q.enunciado,
+    q.resposta
+    FROM questoes q
+    JOIN topicos t ON q.topicoid = t.idt
+    WHERE t.disciplina = 'Inglês'
+      AND t.descricao_topico = 'Simple Present';
+    `
+  );
+  return result.rows;
+}
+
 module.exports = {
   listarTodos,
   buscarPorId,
   criar,
   atualizar,
   deletar,
+  selectgeo1,
+  selectgeo2,
+  selecting1,
+  selecting2
 };

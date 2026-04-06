@@ -25,18 +25,14 @@ async function infos_view(req, res) {
   }
 }
 
-async function buscarPorChave(req, res) {
+async function res(req, res) {
   try {
     const chave = req.params.chave;
-    if (!chave) {
-      return res.status(400).json({ mensagem: "Chave de busca obrigatória" });
-    }
-
     const questoes = await questaoModel.res(chave);
     res.status(200).json(questoes);
   } catch (erro) {
     res.status(500).json({
-      mensagem: "Erro ao buscar questões",
+      mensagem: "Erro",
       erro: erro.message,
     });
   }
@@ -188,6 +184,6 @@ module.exports = {
   atualizar,
   deletar,
   infos_view,
-  res: buscarPorChave,
+  res,
   vw_questoes_com_topicos,
 };
