@@ -81,9 +81,9 @@ src/
 - `GET /questoes` - Lista todas as questões
 - `GET /questoes/:id` - Busca questão por ID
 - `GET /questoes/topico/:topicoid` - Busca questões por tópico
-- `GET /questoes/view/1` - Visualização de informações das questões
-- `GET /questoes/view/2` - Outra visualização (res)
-- `GET /questoes/view/3` - Questões com tópicos
+- `GET /questoes/primeiroSelect` - Visualização de informações das questões
+- `GET /questoes/segundoSelect/:chave` - Pegar as infos que tem a :chave
+- `GET /questoes/terceiroSelect` - Questões com tópicos
 - `POST /questoes` - Cria uma nova questão
   - Corpo: `{ "topicoid": number, "enunciado": "string", "resposta": "string", "link_bib": "string", "dtinclusao": "YYYY-MM-DD" }`
 - `PUT /questoes/:id` - Atualiza uma questão
