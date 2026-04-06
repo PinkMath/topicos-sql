@@ -99,19 +99,3 @@ As tabelas são criadas automaticamente ao conectar:
 
 - **topicos**: `idt` (serial), `disciplina` (varchar), `professor` (varchar), `descricao_topico` (varchar)
 - **questoes**: `idc` (serial), `topicoid` (int, FK para topicos.idt), `enunciado` (varchar), `resposta` (varchar), `link_bib` (varchar), `dtinclusao` (date)
-
-## Scripts
-
-- `npm test`: Executa testes (atualmente não implementado)
-
-## Contribuição
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
-
-## Licença
-
-ISC
