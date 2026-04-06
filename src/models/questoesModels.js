@@ -10,40 +10,44 @@ async function listarTodas() {
 // views
 async function infos_view() {
   const result = await pool.query(
-    "SELECT * FROM infos"
+    `
+    SELECT t.descricao_topico, q.idc, q.enunciado
+    FROM questoes q, topicos t
+    WHERE q.topicoid = 1
+    `
   );
   return result.rows;
 }
 
-async function res() {
+async function res(chave) {
   const result = await pool.query(
-    "SELECT * FROM res"
+    `
+    SELECT enunciado, resposta
+    FROM questoes
+    WHERE enunciado ILIKE $1;
+    `,
+    [`%${chave}%`]
   );
   return result.rows;
 }
 
 async function vw_questoes_com_topicos() {
   const result = await pool.query(
-    "SELECT * FROM vw_questoes_com_topicos"
+    `
+    SELECT 
+    t.descricao_topico AS nome_topico,
+    t.disciplina,
+    q.enunciado,
+    q.resposta,
+    q.link_bib
+    FROM questoes q
+    JOIN topicos t ON q.topicoid = t.idt
+    `
   );
   return result.rows;
 }
 
 // back
-async function listarTodas() {
-  const result = await pool.query(
-    "SELECT * FROM questoes ORDER BY idc"
-  );
-  return result.rows;
-}
-
-async function listarTodas() {
-  const result = await pool.query(
-    "SELECT * FROM questoes ORDER BY idc"
-  );
-  return result.rows;
-}
-
 async function buscarPorId(id) {
   const result = await pool.query(
     "SELECT * FROM questoes WHERE idc = $1",
