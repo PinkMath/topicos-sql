@@ -18,7 +18,7 @@ Este projeto permite criar, listar, atualizar e deletar tópicos e questões ass
 
 1. Clone o repositório:
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/PinkMath/topicos-sql.git
    cd topicossql
    ```
 
