@@ -81,7 +81,7 @@ async function selectgeo1() {
   return result.rows;
 }
 
-async function selectgeo2() {
+async function selectgeo2(chave) {
   const result = await pool.query(
     `
     SELECT 
@@ -92,8 +92,8 @@ async function selectgeo2() {
     FROM questoes q
     JOIN topicos t ON q.topicoid = t.idt
     WHERE t.disciplina = 'Geografia'
-      AND t.descricao_topico = 'Meio Ambiente';
-    `
+      AND t.descricao_topico = $1;
+    `, [`%${chave}%`]
   );
   return result.rows;
 }
@@ -114,7 +114,7 @@ async function selecting1() {
   return result.rows;
   }
   
-async function selecting2() {
+async function selecting2(chave) {
   const result = await pool.query(
     `
     SELECT 
@@ -125,8 +125,8 @@ async function selecting2() {
     FROM questoes q
     JOIN topicos t ON q.topicoid = t.idt
     WHERE t.disciplina = 'Inglês'
-      AND t.descricao_topico = 'Simple Present';
-    `
+      AND t.descricao_topico = $1;
+    `, [`%${chave}%`]
   );
   return result.rows;
 }

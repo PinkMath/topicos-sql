@@ -137,11 +137,12 @@ async function selectgeo1(req, res) {
 
 async function selectgeo2(req, res) {
   try {
-    const topico = await topicoModel.selectgeo2();
-    res.status(200).json(topico);
+    const chave = req.params.chave;
+    const questoes = await topicoModel.selectgeo2(chave);
+    res.status(200).json(questoes);
   } catch (erro) {
     res.status(500).json({
-      mensagem: "Erro ao buscar tópico", 
+      mensagem: "Erro",
       erro: erro.message,
     });
   }
@@ -162,11 +163,12 @@ async function selecting1(req, res) {
 
 async function selecting2(req, res) {
   try {
-    const topicos = await topicoModel.selecting2();
-    res.status(200).json(topicos);
+    const chave = req.params.chave;
+    const questoes = await topicoModel.selecting2(chave);
+    res.status(200).json(questoes);
   } catch (erro) {
     res.status(500).json({
-      mensagem: "Erro ao buscar tópicos", 
+      mensagem: "Erro",
       erro: erro.message,
     });
   }

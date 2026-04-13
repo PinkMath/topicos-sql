@@ -185,5 +185,5 @@ module.exports = {
   deletar,
   infos_view,
   res,
-  vw_questoes_com_topicos,
+  vw_questoes_com_topicos
 };
